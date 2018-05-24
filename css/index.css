@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    background: #43C6AC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F8FFAE, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#content{
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top:50px;
+}
+footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+#logo{
+    width: auto;
+    height: 320px;
+}
+#shopTools{
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+.form-inline .form-group{
+    display: inline;
+}
+.navbar{
+    z-index: 2147483647;
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+}
+.registerForms{
+    text-align: center;
+}
+.signInForms{
+    text-align: center;
+}
+
