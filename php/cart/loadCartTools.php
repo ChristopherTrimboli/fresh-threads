@@ -29,9 +29,9 @@ function loadCartTools(){
     $cartTools = "
         <div class=\"col-lg-4  col-sm-12\">
             <div class=\"btn-group\" id=\"checkoutButton\">
-                <button type=\"button\" class=\"btn btn-success\">
-                    Checkout
-                </button>
+                <a id='checkoutButton' href='../checkout/checkout.php'>
+                    <button type=\"button\" class=\"btn btn-success\">Checkout</button>
+                </a>
             </div>
         </div>
         <div class=\"col-lg-4 col-sm-12\">

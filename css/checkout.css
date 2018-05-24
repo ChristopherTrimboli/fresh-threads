@@ -103,3 +103,6 @@ footer{
 a{
     color: black;
 }
+#payNowButton{
+    margin-left: 5px;
+}

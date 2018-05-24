@@ -24,9 +24,12 @@ function loadShopTools(){
             </a>
         </div>
         <div class=\"btn-group\" id=\"checkoutButton\">
+        <a href='../checkout/checkout.php'>
             <button type=\"button\" class=\"btn btn-success\">
                 Checkout
             </button>
+        </a>
+            
         </div>
         ";
     }
