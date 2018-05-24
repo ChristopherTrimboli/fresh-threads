@@ -8,7 +8,6 @@ function loadShopCategory($cat){
 
     session_start();
 
-
     if($cat == 'All'){
         $result = db_query("SELECT * FROM fresh_threads.Product;");
     }
@@ -21,6 +20,7 @@ function loadShopCategory($cat){
     if($cat == 'Socks'){
         $result = db_query("SELECT * FROM fresh_threads.Product WHERE Category = 'Socks';");
     }
+
     $counter = 0;
     if($result == true) {
         while ($row = mysqli_fetch_array($result)) {
@@ -29,7 +29,7 @@ function loadShopCategory($cat){
                 $addToCart = "
                 <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']})\">Add-to-Cart</a>
                 <script>
-                function addItem(itemID) {
+                function addItem(itemID, quantity) {
                     $.ajax({
                         type: \"POST\",
                         url: 'addItemToCart.php',
@@ -43,8 +43,9 @@ function loadShopCategory($cat){
                     <div class=\"col-6\">
                         <label for=\"quantityInput\">Quantity</label>
                         <form name=\"quantityForm\">
-                            <input type=\"range\" name=\"quantityInput\" value=\"1\" min=\"1\" max=\"25\" oninput=\"quantityOutput.value = quantityInput.value\">
-                            <output name=\"quantityOutput\">1</output>
+                            <input type=\"range\" name=\"quantityInput\" value=\"1\" min=\"1\" max=\"25\"
+                             oninput=\"quantityOutput.value = quantityInput.value\">
+                            <output id=\"quantityOutput\" name=\"quantityOutput\">0</output>
                         </form>
                     </div>
                     <div class=\"col-6\">

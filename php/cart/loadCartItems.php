@@ -6,19 +6,7 @@ if(isset($_SESSION["loggedIn"])){
     if($_SESSION["loggedIn"] == true){
         $user = $_SESSION["user"];
 
-        $userID = db_query("SELECT CustomerID FROM fresh_threads.Customer WHERE CustomerEmail = '$user';");
-        $userID = mysqli_fetch_array($userID);
-        $userID = $userID[0];
-
-        $products = db_query("SELECT Product_ProductID FROM fresh_threads.Cart WHERE Customer_CustomerID = '$userID';");
-
-        $productsList = "";
-        while($productsArray = mysqli_fetch_array($products)){
-                $productsList = $productsList . "'" . $productsArray['Product_ProductID'] . "', ";
-        }
-        $productsList = substr($productsList, 0, -2);
-
-        $result = db_query("SELECT * FROM fresh_threads.Product WHERE ProductID IN ($productsList);");
+        $result = db_query("SELECT * FROM fresh_threads.Cart LEFT JOIN fresh_threads.Product ON Product_ProductID = ProductID");
 
         $counter = 0;
         if($result != false) {
@@ -38,8 +26,7 @@ if(isset($_SESSION["loggedIn"])){
                             <div class=\"col-6\">
                                 <label for=\"quantityInput\">Quantity</label>
                                 <form name=\"quantityForm\">
-                                    <input type=\"range\" name=\"quantityInput\" value=\"1\" min=\"1\" max=\"25\" oninput=\"quantityOutput.value = quantityInput.value\">
-                                    <output name=\"quantityOutput\">1</output>
+                                    <output id='quantityOutput' name='quantityOutput' name=\"quantityOutput\">{$row['Quantity']}</output>
                                 </form>
                             </div>
                             <div class=\"col-6\">
@@ -69,6 +56,7 @@ if(isset($_SESSION["loggedIn"])){
                     print "</div>";
                     $counter = 0;
                 }
+
             } // end while
         }
         else{

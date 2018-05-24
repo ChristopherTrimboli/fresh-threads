@@ -3,6 +3,8 @@ function addItemToCart(){
     include '../database/db_connect.php';
 
     $itemID = $_POST['itemID'];
+    $quantity = $_POST['quantityOutput'];
+    echo"$quantity";
 
     session_start();
     $user = $_SESSION['user'];
@@ -12,7 +14,7 @@ function addItemToCart(){
     $userID = $userID[0];
 
     $sql = "INSERT INTO Cart(Quantity, Customer_CustomerID, Product_ProductID)
-        VALUES (5, '$userID', '$itemID');";
+        VALUES ('$quantity', '$userID', '$itemID');";
 
     $connection = db_connect();
 

@@ -43,11 +43,11 @@
             document.getElementById("shop").innerHTML = html;
         })
     }
-    function addItem(itemID) {
+    function addItem(itemID, quantity) {
         $.ajax({
             type: "POST",
             url: 'addItemToCart.php',
-            data:{itemID:itemID}
+            data:{itemID:itemID, quantity:quantity}
         })
     }
 </script>
