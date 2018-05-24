@@ -4,4 +4,4 @@ session_start();
 
 $user = $_SESSION['user'];
 $itemID = $_POST["itemID"];
-$result = db_query("DELETE FROM ICS199Group12_dev.Cart WHERE Product_ProductID = '$itemID';");
+$result = db_query("DELETE FROM fresh_threads.Cart WHERE Product_ProductID = '$itemID';");

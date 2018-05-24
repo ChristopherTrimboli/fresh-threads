@@ -7,7 +7,7 @@ function addItemToCart(){
     session_start();
     $user = $_SESSION['user'];
 
-    $userID = db_query("SELECT CustomerID FROM ICS199Group12_dev.Customer WHERE CustomerEmail = '$user';");
+    $userID = db_query("SELECT CustomerID FROM fresh_threads.Customer WHERE CustomerEmail = '$user';");
     $userID = mysqli_fetch_array($userID);
     $userID = $userID[0];
 

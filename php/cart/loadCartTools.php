@@ -4,11 +4,11 @@ function loadCartTools(){
     session_start();
     $user = $_SESSION['user'];
 
-    $userID = db_query("SELECT CustomerID FROM ICS199Group12_dev.Customer WHERE CustomerEmail = '$user';");
+    $userID = db_query("SELECT CustomerID FROM fresh_threads.Customer WHERE CustomerEmail = '$user';");
     $userID = mysqli_fetch_array($userID);
     $userID = $userID[0];
 
-    $products = db_query("SELECT Product_ProductID FROM ICS199Group12_dev.Cart WHERE Customer_CustomerID = '$userID';");
+    $products = db_query("SELECT Product_ProductID FROM fresh_threads.Cart WHERE Customer_CustomerID = '$userID';");
 
     $productsList = "";
     while($productsArray = mysqli_fetch_array($products)){
@@ -16,7 +16,7 @@ function loadCartTools(){
     }
     $productsList = substr($productsList, 0, -2);
 
-    $priceList = db_query("SELECT Price FROM ICS199Group12_dev.Product WHERE ProductID IN ($productsList);");
+    $priceList = db_query("SELECT Price FROM fresh_threads.Product WHERE ProductID IN ($productsList);");
 
     $totalPrice = 0;
 

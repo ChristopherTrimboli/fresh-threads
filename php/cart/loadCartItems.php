@@ -6,11 +6,11 @@ if(isset($_SESSION["loggedIn"])){
     if($_SESSION["loggedIn"] == true){
         $user = $_SESSION["user"];
 
-        $userID = db_query("SELECT CustomerID FROM ICS199Group12_dev.Customer WHERE CustomerEmail = '$user';");
+        $userID = db_query("SELECT CustomerID FROM fresh_threads.Customer WHERE CustomerEmail = '$user';");
         $userID = mysqli_fetch_array($userID);
         $userID = $userID[0];
 
-        $products = db_query("SELECT Product_ProductID FROM ICS199Group12_dev.Cart WHERE Customer_CustomerID = '$userID';");
+        $products = db_query("SELECT Product_ProductID FROM fresh_threads.Cart WHERE Customer_CustomerID = '$userID';");
 
         $productsList = "";
         while($productsArray = mysqli_fetch_array($products)){
@@ -18,7 +18,7 @@ if(isset($_SESSION["loggedIn"])){
         }
         $productsList = substr($productsList, 0, -2);
 
-        $result = db_query("SELECT * FROM ICS199Group12_dev.Product WHERE ProductID IN ($productsList);");
+        $result = db_query("SELECT * FROM fresh_threads.Product WHERE ProductID IN ($productsList);");
 
         $counter = 0;
         if($result != false) {

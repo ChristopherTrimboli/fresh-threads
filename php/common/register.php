@@ -13,7 +13,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 else{
     if($password == $passwordConfirm){
-        $sql = "INSERT INTO Customer (CustomerPW, CustomerEmail) VALUES ('$hashed_password', '$email');";
+        $sql = "INSERT INTO fresh_threads.Customer (CustomerPW, CustomerEmail) VALUES ('$hashed_password', '$email');";
         if(mysqli_query($connection, $sql)){
             echo "Records inserted successfully, going back to the shop...";
             echo"

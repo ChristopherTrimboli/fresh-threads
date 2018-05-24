@@ -5,7 +5,7 @@ $password = $_POST["passwordSignIn"];
 
 $connection = db_connect();
 
-$hashed_password = db_query("SELECT CustomerPW FROM ICS199Group12_dev.Customer WHERE CustomerEmail = '$email';");
+$hashed_password = db_query("SELECT CustomerPW FROM fresh_threads.Customer WHERE CustomerEmail = '$email';");
 
 $hashed_password = mysqli_fetch_array($hashed_password);
 

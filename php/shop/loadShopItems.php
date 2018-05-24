@@ -10,16 +10,16 @@ function loadShopCategory($cat){
 
 
     if($cat == 'All'){
-        $result = db_query("SELECT * FROM ICS199Group12_dev.Product;");
+        $result = db_query("SELECT * FROM fresh_threads.Product;");
     }
     if($cat == 'Shirts'){
-        $result = db_query("SELECT * FROM ICS199Group12_dev.Product WHERE Category = 'Shirt';");
+        $result = db_query("SELECT * FROM fresh_threads.Product WHERE Category = 'Shirt';");
     }
     if($cat == 'Pants'){
-        $result = db_query("SELECT * FROM ICS199Group12_dev.Product WHERE Category = 'Pants';");
+        $result = db_query("SELECT * FROM fresh_threads.Product WHERE Category = 'Pants';");
     }
     if($cat == 'Socks'){
-        $result = db_query("SELECT * FROM ICS199Group12_dev.Product WHERE Category = 'Socks';");
+        $result = db_query("SELECT * FROM fresh_threads.Product WHERE Category = 'Socks';");
     }
     $counter = 0;
     if($result == true) {
@@ -94,7 +94,8 @@ function loadShopCategory($cat){
         } // end while
     }
     else{
-        echo mysqli_errno($result);
+        $connection = db_connect();
+        echo mysqli_errno($connection);
     }
 } // end function
 
