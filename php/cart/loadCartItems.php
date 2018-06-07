@@ -6,7 +6,12 @@ if(isset($_SESSION["loggedIn"])){
     if($_SESSION["loggedIn"] == true){
         $user = $_SESSION["user"];
 
-        $result = db_query("SELECT * FROM fresh_threads.Cart LEFT JOIN fresh_threads.Product ON Product_ProductID = ProductID");
+        $userID = db_query("SELECT CustomerID FROM fresh_threads.Customer WHERE CustomerEmail = '$user';");
+
+        $userID = mysqli_fetch_array($userID);
+
+        $result = db_query("SELECT * FROM fresh_threads.Cart LEFT JOIN fresh_threads.Product ON
+                                  Product_ProductID = ProductID WHERE Customer_CustomerID = {$userID['CustomerID']};");
 
         $counter = 0;
         if($result != false) {
@@ -42,7 +47,7 @@ if(isset($_SESSION["loggedIn"])){
                                 </div>
                             </div>
                         </div>
-                            <h1 class=\"display-4\">{$row['Price']}</h1>
+                            <h1 class=\"display-4\">\${$row['Price']}</h1>
                             <a class=\"btn btn-primary\">Edit Order</a>
                             <a class=\"btn btn-danger\" onclick=\"deleteCartItem({$row['ProductID']})\">Delete</a>
                         </div>

@@ -33,10 +33,21 @@ function loadCheckoutItems(){
                             <p class=\"card-text\">{$row['ProductDescription']}</p>
                             <div class=\"row\">
                             <div class=\"col-6\">
-                                <label for=\"quantityInput\">Quantity</label>
-                                <form name=\"quantityForm\">
-                                    <output id='quantityOutput' name='quantityOutput' name=\"quantityOutput\">{$row['Quantity']}</output>
-                                </form>
+                                <div class=\"form-group\">
+                                <label for=\"exampleFormControlSelect1\">Quantity</label>
+                                <select class=\"form-control\" id=\"exampleFormControlSelect1\">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                  <option>6</option>
+                                  <option>7</option>
+                                  <option>8</option>
+                                  <option>9</option>
+                                  <option>10</option>
+                                </select>
+                              </div>
                             </div>
                             <div class=\"col-6\">
                                 <div class=\"form-group\">
@@ -51,7 +62,7 @@ function loadCheckoutItems(){
                                 </div>
                             </div>
                         </div>
-                            <h1 class=\"display-4\">{$row['Price']}</h1>
+                            <h1 class=\"display-4\">\${$row['Price']}</h1>
                         </div>
                     </div>
                 </div>

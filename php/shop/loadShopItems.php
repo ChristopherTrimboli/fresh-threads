@@ -27,26 +27,16 @@ function loadShopCategory($cat){
 
             if (isset($_SESSION["loggedIn"])) {
                 $addToCart = "
-                <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']})\">Add-to-Cart</a>
-                <script>
-                function addItem(itemID, quantity) {
-                    $.ajax({
-                        type: \"POST\",
-                        url: 'addItemToCart.php',
-                        data:{itemID:itemID}
-                    })
-                }
-                </script>
+                <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']}, )\">Add-to-Cart</a>
+                
             ";
                 $options = "
                 <div class=\"row\">
                     <div class=\"col-6\">
-                        <label for=\"quantityInput\">Quantity</label>
-                        <form name=\"quantityForm\">
-                            <input type=\"range\" name=\"quantityInput\" value=\"1\" min=\"1\" max=\"25\"
-                             oninput=\"quantityOutput.value = quantityInput.value\">
-                            <output id=\"quantityOutput\" name=\"quantityOutput\">0</output>
-                        </form>
+                        <div class=\"form-group\">
+                            <label for=\"quantityForm\">Quantity</label>
+                            <input type=\"text\" class=\"form-control quantity\" placeholder=\"...\">
+                        </div>
                     </div>
                     <div class=\"col-6\">
                         <div class=\"form-group\">
@@ -79,7 +69,7 @@ function loadShopCategory($cat){
                         <h5 class=\"card-title\">{$row['ProductName']}</h5>
                         <p class=\"card-text\">{$row['ProductDescription']}</p>
                         $options
-                        <h1 class=\"display-4\">{$row['Price']}</h1>
+                        <h1 class=\"display-4\">\${$row['Price']}</h1>
                         $addToCart
                     </div>
                 </div>

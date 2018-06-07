@@ -44,11 +44,16 @@
         })
     }
     function addItem(itemID, quantity) {
+
         $.ajax({
             type: "POST",
             url: 'addItemToCart.php',
-            data:{itemID:itemID, quantity:quantity}
-        })
+            data:{
+                itemID:itemID,
+                quantity: quantity
+            }
+        });
+        console.log('quantity is: ' + quantity);
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
