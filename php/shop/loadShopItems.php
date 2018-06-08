@@ -23,11 +23,12 @@ function loadShopCategory($cat){
 
     $counter = 0;
     if($result == true) {
+        $i = 0;
         while ($row = mysqli_fetch_array($result)) {
 
             if (isset($_SESSION["loggedIn"])) {
                 $addToCart = "
-                <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']}, )\">Add-to-Cart</a>
+                <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']}, document.getElementsByClassName('form-control quantity')[$i].value)\">Add-to-Cart</a>
                 
             ";
                 $options = "
@@ -82,6 +83,7 @@ function loadShopCategory($cat){
                 print "</div>";
                 $counter = 0;
             }
+            $i++;
         } // end while
     }
     else{
