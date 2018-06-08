@@ -22,21 +22,22 @@ function loadShopCategory($cat){
     }
 
     $counter = 0;
-    if($result == true) {
-        $i = 0;
-        while ($row = mysqli_fetch_array($result)) {
+    if(isset($result)){
+        if($result == true) {
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
 
-            if (isset($_SESSION["loggedIn"])) {
-                $addToCart = "
-                <a class=\"btn btn-primary\" onclick=\"addItem({$row['ProductID']}, document.getElementsByClassName('form-control quantity')[$i].value)\">Add-to-Cart</a>
-                
+                if (isset($_SESSION["loggedIn"])) {
+                    $addToCart = "
+                <a class=\"btn btn-primary addToCart\"
+                 onclick=\"addItem({$row['ProductID']}, document.getElementsByClassName('form-control quantity')[$i].value); successAlert('{$row['ProductName']}'); \">Add-to-Cart</a>
             ";
-                $options = "
+                    $options = "
                 <div class=\"row\">
                     <div class=\"col-6\">
                         <div class=\"form-group\">
                             <label for=\"quantityForm\">Quantity</label>
-                            <input type=\"text\" class=\"form-control quantity\" placeholder=\"...\">
+                            <input type=\"text\" class=\"form-control quantity\" placeholder=\"1\" value='1'>
                         </div>
                     </div>
                     <div class=\"col-6\">
@@ -54,14 +55,14 @@ function loadShopCategory($cat){
                 </div>
             ";
 
-            } else {
-                $options = "";
-                $addToCart = "";
-            }
-            if ($counter == 0) {
-                print "<div class=\"row\">";
-            }
-            $column = "
+                } else {
+                    $options = "";
+                    $addToCart = "";
+                }
+                if ($counter == 0) {
+                    print "<div class=\"row\">";
+                }
+                $column = "
             <div class=\"col-lg-3 col-md-6 col-sm-6\">
                 <div class='shadow-lg mb-5 rounded'>
                 <div class=\"card\" style=\"width: 18rem;\">
@@ -77,18 +78,20 @@ function loadShopCategory($cat){
            </div>
            </div>
             ";
-            print "$column";
-            $counter++;
-            if ($counter == 4) {
-                print "</div>";
-                $counter = 0;
-            }
-            $i++;
-        } // end while
+                print "$column";
+                $counter++;
+                if ($counter == 4) {
+                    print "</div>";
+                    $counter = 0;
+                }
+                $i++;
+            } // end while
+        }
+        else{
+            $connection = db_connect();
+            echo mysqli_errno($connection);
+        }
     }
-    else{
-        $connection = db_connect();
-        echo mysqli_errno($connection);
-    }
+
 } // end function
 

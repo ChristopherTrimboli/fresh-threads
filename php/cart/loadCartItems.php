@@ -49,7 +49,7 @@ if(isset($_SESSION["loggedIn"])){
                         </div>
                             <h1 class=\"display-4\">\${$row['Price']}</h1>
                             <a class=\"btn btn-primary\">Edit Order</a>
-                            <a class=\"btn btn-danger\" onclick=\"deleteCartItem({$row['ProductID']})\">Delete</a>
+                            <a class=\"btn btn-danger\" onclick=\"deleteCartItem({$row['ProductID']}); deleteAlert('{$row['ProductName']}');\">Delete</a>
                         </div>
                     </div>
                 </div>

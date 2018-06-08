@@ -86,7 +86,7 @@ if($trigger == true){
                                 <span aria-hidden=\"true\">&times;</span>
                             </button>
                         </div>
-                        <form name=\"signInForm\" action=\"../common/signIn.php\" method=\"post\">
+                        <form id='signInForm' name=\"signInForm\" action=\"../common/signIn.php\" method=\"post\">
                         <div class=\"modal-body\">
                                 <div class=\"form-group\">
                                     <label for=\"emailSignIn\" class=\"col-form-label\">Email</label>
@@ -105,7 +105,7 @@ if($trigger == true){
                         </div>
                         <div class=\"modal-footer\">
                             <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
-                            <button id=\"signInButtonSubmit\" type=\"submit\" class=\"btn btn-primary\">Sign-In</button>
+                            <button id=\"signInButtonSubmit\" type=\"submit\" class=\"btn btn-primary\" onclick='loginMessage();'>Sign-In</button>
                             <script>document.getElementById(\"signInButtonSubmit\").disabled = true;</script>
                         </div>
                         </form>
@@ -113,6 +113,16 @@ if($trigger == true){
                 </div>
             </div>
         </div>
+        
+        <script>
+            (function loginMessage(){
+                let loginMessage = document.createElement(\"PARAGRAPH\");
+                let form = document.getElementById('signInForm');
+                document.getElementById('signInForm').innerHTML = '';
+                loginMessage.appendChild(form);
+            })();
+            
+        </script>
         ";
         print "$message";
     }

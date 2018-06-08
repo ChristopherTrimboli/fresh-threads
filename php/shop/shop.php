@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Buy t-shirts and clothing at Fresh Threads">
     <meta name="keywords" content="T-Shirts, Clothing, Shop, Fresh Threads">
-    <meta name="author" content="Chris Eddy, Cody Bergin, Colton Askew, Jeevenn Sangara">
+    <meta name="author" content="Chris Eddy">
     <link rel="icon" href="../../images/favicon.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -24,8 +24,22 @@
     </div>
 
 </div>
+<div id="success-alert" class="alert alert-success" role="alert">
+
+</div>
 <?php include '../common/footer.html' ?>
 <script>
+    $(document).ready (function(){
+        $("#success-alert").hide();
+    });
+
+    function successAlert(productName){
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+            $("#success-alert").slideUp(500);
+        });
+        document.getElementById('success-alert').innerText = productName + " added to your cart!";
+    }
+
     function loadShopTools() {
         $.ajax({
             type: "POST",

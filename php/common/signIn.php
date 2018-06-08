@@ -17,6 +17,7 @@ if(password_verify($password, $hashed_password['CustomerPW'])) {
         header('Location: ../admin/admin.php');
     }
     else{
+        sleep(5);
         header('Location: ../shop/shop.php');
     }
 }

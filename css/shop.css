@@ -103,3 +103,11 @@ footer{
 a{
     color: black;
 }
+#success-alert{
+    position: fixed;
+    margin: 0 ;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+}
