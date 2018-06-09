@@ -11,7 +11,9 @@ function db_connect() {
     // If connection was not successful, handle the error
     if($connection === false) {
         // Handle error - notify administrator, log to a file, show an error screen, etc.
+        echo"connection did not work";
         return mysqli_connect_error();
+
     }
     return $connection;
 }
@@ -22,4 +24,3 @@ function db_query($query) {
     $result = mysqli_query($connection, $query);
     return $result;
 }
-?>

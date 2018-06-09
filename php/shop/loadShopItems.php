@@ -90,6 +90,7 @@ function loadShopCategory($cat){
         else{
             $connection = db_connect();
             echo mysqli_errno($connection);
+            echo"connection did not work";
         }
     }
 
