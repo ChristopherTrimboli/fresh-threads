@@ -24,29 +24,24 @@
 <?php include 'navBarCart.php' ?>
 <div id="content">
     <div class="row" id="cartTools">
-
     </div>
     <br>
     <div id="cartItems">
     </div>
 </div>
-
 <div id="delete-alert" class="alert alert-danger" role="alert">
-
 </div>
 <?php include '../common/footer.html' ?>
 <script>
     $(document).ready (function(){
         $("#delete-alert").hide();
     });
-
     function deleteAlert(productName){
         $("#delete-alert").fadeTo(2000, 500).slideUp(500, function(){
             $("#delete-alert").slideUp(500);
         });
         document.getElementById('delete-alert').innerText = productName + " deleted from your cart.";
     }
-
     function loadCartItems() {
         $.ajax({
             type: "POST",
@@ -71,8 +66,8 @@
             url: 'deleteCartItem.php',
             data:{itemID:itemID}
         });
+        loadCartTools();
         loadCartItems();
-        loadCartTools()
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"

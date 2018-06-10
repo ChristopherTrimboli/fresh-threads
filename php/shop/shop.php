@@ -24,13 +24,10 @@
 <div id="content">
     <?php include 'navbarShop.php' ?>
     <div class="row " id="shopTools">
-
     </div>
     <!--Generating shop cards from template card for all items in shop -->
-
     <div id="shop">
     </div>
-
 </div>
 <div id="success-alert" class="alert alert-success" role="alert">
 
@@ -40,14 +37,12 @@
     $(document).ready (function(){
         $("#success-alert").hide();
     });
-
     function successAlert(productName){
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
             $("#success-alert").slideUp(500);
         });
         document.getElementById('success-alert').innerText = productName + " added to your cart!";
     }
-
     function loadShopTools() {
         $.ajax({
             type: "POST",
@@ -65,17 +60,17 @@
             document.getElementById("shop").innerHTML = html;
         })
     }
-    function addItem(itemID, quantity) {
+    function addItem(itemID, quantity, size) {
 
         $.ajax({
             type: "POST",
             url: 'addItemToCart.php',
             data:{
                 itemID:itemID,
-                quantity: quantity
+                quantity: quantity,
+                size: size
             }
         });
-        console.log('quantity is: ' + quantity);
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"

@@ -42,8 +42,8 @@ footer{
     overflow-wrap: break-word;
 }
 .card-img-top{
-    max-height: 280px;
-    width: auto;
+    max-height: 300px;
+    width:  auto;
 }
 #shopTools{
     margin-left: 5px;

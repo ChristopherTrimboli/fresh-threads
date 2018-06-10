@@ -30,20 +30,12 @@ if(isset($_SESSION["loggedIn"])){
                             <div class=\"row\">
                             <div class=\"col-6\">
                                 <label for=\"quantityInput\">Quantity</label>
-                                <form name=\"quantityForm\">
-                                    <output id='quantityOutput' name='quantityOutput' name=\"quantityOutput\">{$row['Quantity']}</output>
-                                </form>
+                                <p class='lead' id='quantityInput'>{$row['Quantity']}</p>
                             </div>
                             <div class=\"col-6\">
                                 <div class=\"form-group\">
                                     <label for=\"Select\">Item Size</label>
-                                    <select name=\"Select\" class=\"form-control\">
-                                        <option>Small</option>
-                                        <option>Medium</option>
-                                        <option>Large</option>
-                                        <option>X-Large</option>
-                                        <option>XX-Large</option>
-                                    </select>
+                                    <p class='lead' id='select'>{$row['Size']}</p>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +53,6 @@ if(isset($_SESSION["loggedIn"])){
                     print "</div>";
                     $counter = 0;
                 }
-
             } // end while
         }
         else{
