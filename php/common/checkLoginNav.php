@@ -46,21 +46,19 @@ if($trigger == true){
                                     <label for=\"emailRegister\" class=\"col-form-label\">Email</label>
                                     <input onkeyup =\"return validateRegister()\" type=\"text\" name=\"emailRegister\"
                                            class=\"form-control registerForms\" id=\"emailRegister\"
-                                           placeholder=\"example@example.xyz\"
-                                    >
+                                           placeholder=\"example@example.xyz\" autocomplete='username email'>
                                 </div>
                                 <div class=\"form-group\">
                                     <label for=\"passwordRegister\" class=\"col-form-label\">Password</label>
                                     <input onkeyup=\"return validateRegister()\" name=\"passwordRegister\" type=\"password\"
                                            class=\"form-control registerForms\" id=\"passwordRegister\"
-                                           placeholder=\"Choose a secure password\"
-                                    >
+                                           placeholder=\"Choose a secure password\" autocomplete='new-password'>
                                 </div>
                                 <div class=\"form-group\">
                                     <label for=\"passwordConfirmRegister\" class=\"col-form-label\">Confirm Password</label>
                                     <input onkeyup=\"return validateRegister()\" name=\"passwordConfirmRegister\"
                                            type=\"password\" class=\"form-control registerForms\" id=\"passwordConfirmRegister\"
-                                           placeholder=\"Re-type your password\">
+                                           placeholder=\"Re-type your password\" autocomplete='new-password'>
                                 </div>
                             </div>
                         <div class=\"modal-footer\">
@@ -92,20 +90,20 @@ if($trigger == true){
                                     <label for=\"emailSignIn\" class=\"col-form-label\">Email</label>
                                     <input onkeyup=\"return validateSignIn()\" name=\"emailSignIn\" type=\"text\"
                                            class=\"form-control signInForms\" id=\"emailSignIn\"
-                                           placeholder=\"example@example.xyz\"
+                                           placeholder=\"example@example.xyz\" autocomplete='username email'
                                     >
                                 </div>
                                 <div class=\"form-group\">
                                     <label for=\"passwordSignIn\" class=\"col-form-label\">Password</label>
                                     <input onkeyup=\"return validateSignIn()\" name=\"passwordSignIn\" type=\"password\"
                                            class=\"form-control signInForms\" id=\"passwordSignIn\"
-                                           placeholder=\"Your password\"
+                                           placeholder=\"Your password\" autocomplete='password'
                                     >
                                 </div>
                         </div>
                         <div class=\"modal-footer\">
                             <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
-                            <button id=\"signInButtonSubmit\" type=\"submit\" class=\"btn btn-primary\" onclick='loginMessage();'>Sign-In</button>
+                            <button id=\"signInButtonSubmit\" type=\"submit\" class=\"btn btn-primary\">Sign-In</button>
                             <script>document.getElementById(\"signInButtonSubmit\").disabled = true;</script>
                         </div>
                         </form>
@@ -113,7 +111,6 @@ if($trigger == true){
                 </div>
             </div>
         </div>
-        
         <script>
             (function loginMessage(){
                 let loginMessage = document.createElement(\"PARAGRAPH\");
@@ -121,7 +118,6 @@ if($trigger == true){
                 document.getElementById('signInForm').innerHTML = '';
                 loginMessage.appendChild(form);
             })();
-            
         </script>
         ";
         print "$message";

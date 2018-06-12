@@ -21,6 +21,15 @@
     </script>
 </head>
 <body onload="loadCheckoutItems()">
+
+<?php
+
+require_once('../../stripe-php-6.7.4/init.php');
+\Stripe\Stripe::setApiKey('sk_test_WYkbIbCufD36ZWcLpOJij4RN');
+$charge = \Stripe\Charge::create(['amount' => 2000, 'currency' => 'usd', 'source' => 'tok_189fqt2eZvKYlo2CTGBeg6Uq']);
+echo $charge;
+
+?>
     <div id="content">
     <?php include '../shop/navbarShop.php' ?>
         <div class="row" id="cartTools">

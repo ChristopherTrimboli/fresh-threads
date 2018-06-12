@@ -50,7 +50,7 @@ if(isset($_SESSION["loggedIn"])) {
                                 <label for=\"customFile\">Upload Picture</label>
                                 <div class=\"custom-file\">
                                     <input type=\"file\" class=\"custom-file-input\" id=\"customFile\">
-                                    <label class=\"custom-file-label\" for=\"customFile\">Choose Picture</label>
+                                    <label class=\"custom-file-label\" for=\"customFile\">Upload</label>
                                 </div>
                             </div>
                             <div class=\"form-group col-md-12\">
